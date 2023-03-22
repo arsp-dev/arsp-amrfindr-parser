@@ -85,12 +85,6 @@ def parse_data(output_file):
                lst.append('No')
         unique_df.loc[len(unique_df)] = lst
 
-
-
-    
-
-
-
     # Write dataframe to Excel file
     unique_df.to_excel("./output/amr_findr/" + output_file, index=False)
 
