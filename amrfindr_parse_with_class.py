@@ -79,22 +79,8 @@ def parse_data(output_file):
                lst.append('No')
         unique_df.loc[len(unique_df)] = lst
 
-    # for index, row in merged_df.iterrows():
-    #     lst = []
-    #     for un in unique_names:
-    #         lst.append(un)
-    #         for uc in unique_cols:
-    #             print(uc,row[column_name])
-    #             # if uc == row[column_name]:
-    #             #     lst.append('Yes')
-    #             # else:
-    #             #     lst.append('No')
-    #         # unique_df = unique_df.append(pd.Series(lst))
-
 
     
-
-
 
     # Write dataframe to Excel file
     unique_df.to_excel("./output/amr_findr_with_class/" + output_file, index=False)
