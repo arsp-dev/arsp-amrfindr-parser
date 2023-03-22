@@ -67,8 +67,9 @@ def parse_data(output_file):
 
     # unique_df = pd.pivot_table(merged_df, columns=['Gene symbol'], index=['Name'])
     unique_cols = merged_df[column_name].unique().tolist()
+    unique_cols.sort()
     unique_names = merged_df['Name'].unique().tolist()
-    unique_cols.insert(0,'Name')
+    unique_cols.insert(0,'stock_num')
     un_cols = merged_df[column_name].unique().tolist()
     unique_df = pd.DataFrame([], columns=unique_cols)
 
@@ -86,13 +87,13 @@ def parse_data(output_file):
         unique_df.loc[len(unique_df)] = lst
 
     # Write dataframe to Excel file
-    unique_df.to_excel("./output/amr_findr/" + output_file, index=False)
+    unique_df.to_excel("/output/amr_findr/" + output_file, index=False)
 
     print(f"Parsed data written to {output_file}.")
 
 # Usage
 
-if not os.path.exists("./output/amrfindr"):
+if not os.path.exists("/output/amrfindr"):
       
     # if the demo_folder directory is not present 
     # then create it.

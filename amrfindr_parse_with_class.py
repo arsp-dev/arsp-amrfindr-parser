@@ -60,8 +60,9 @@ def parse_data(output_file):
     merged_df = pd.concat(dataframes)
 
     unique_cols = merged_df["Gene symbol"].unique().tolist()
+    unique_cols.sort()
     unique_names = merged_df['Name'].unique().tolist()
-    unique_cols.insert(0,'Name')
+    unique_cols.insert(0,'stock_num')
     un_cols = merged_df["Gene symbol"].unique().tolist()
     unique_df = pd.DataFrame([], columns=unique_cols)
 
@@ -88,10 +89,10 @@ def parse_data(output_file):
     print(f"Parsed data written to {output_file}.")
 
 # Usage
-if not os.path.exists("./output/amrfindr_with_class"):
+if not os.path.exists("/output/amrfindr_with_class"):
       
     # if the demo_folder directory is not present 
     # then create it.
-    os.makedirs("./output/amrfindr_with_class")
+    os.makedirs("/output/amrfindr_with_class")
 timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 parse_data(output_file=f"output_file_{ timestamp }.xlsx")
